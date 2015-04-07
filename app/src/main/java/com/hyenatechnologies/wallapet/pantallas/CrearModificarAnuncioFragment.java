@@ -99,9 +99,13 @@ public class CrearModificarAnuncioFragment extends Fragment {
             botonCrear.setText("Actualizar anuncio");
             //Nos pasan anuncio, modificamos
             Anuncio a = Anuncio.fromJson(jsonAnuncio);
-            modificando = a;
-            mostrarAnuncio(a);
-
+            if (a != null){
+                modificando = a;
+                mostrarAnuncio(a);
+            }else{
+                Toast.makeText(getActivity().getApplicationContext(), "Error el anuncio no existe",
+                        Toast.LENGTH_LONG).show();
+            }
         }
 
 
